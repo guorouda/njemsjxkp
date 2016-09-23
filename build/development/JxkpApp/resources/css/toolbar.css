@@ -1,0 +1,114 @@
+.whitewords{
+	background-image:url(../icon/jg.png); background-repeat: repeat-x; !important;
+	/*background-color:#808000*/
+}
+.add {
+    background-image:url(../icon/add.gif) !important;
+}
+.manager {
+    background-image:url(../icon/manager.png) !important;
+}
+.safe {
+    background-image:url(../icon/safe.png) !important;
+}
+.RED {
+	background-image:url(../icon/flag_red.png) !important;
+}
+.GREEN {
+	background-image:url(../icon/flag_green.png) !important;
+}
+.YELLOW {
+	background-image:url(../icon/flag_yellow.png) !important;
+}
+.userform {
+    background-image:url(../icon/user.png) !important;
+}
+.usersettings {
+    background-image:url(../icon/user_edit.png) !important;
+}
+.business{
+	background-image:url(../icon/box_package.png) !important;
+}
+.salaryform {
+    background-image:url(../icon/money_yen.png) !important;
+}
+.attendence {
+    background-image:url(../icon/calendar.png) !important;
+}
+.score {
+    background-image:url(../icon/vcard_edit.png) !important;
+}
+.database_refresh {
+    background-image:url(../icon/database_refresh.png) !important;
+}
+.refresh{
+	background-image:url(../icon/arrow_refresh.png) !important;
+}
+.authorizationgroup{
+	background-image:url(../icon/group_key.png) !important;
+}
+.userauthorizationform{
+	background-image:url(../icon/key.png) !important;
+}
+.authorization{
+	background-image:url(../icon/application_key.png) !important;
+}
+.up{
+	background-image: url('../icon/arrow_up.png') !important;
+}
+.remove {
+    background-image:url(../icon/delete.gif) !important;
+}
+.icon-dep {
+    background-image: url(../icon/house_key.png) !important;
+}
+.deptmanagement{
+    background-image: url(../icon/house_key.png) !important;
+}
+.icon-save {
+    background-image: url(../icon/save.gif) !important;
+}
+.icon-add {
+    background-image: url(../icon/add.png) !important;
+}
+.icon-delete {
+    background-image: url(../icon/delete.png) !important;
+}
+.settings {
+    background-image:url(../icon/settings.gif) !important;
+}
+.down{
+	background-image: url('../images/arrow_down.png') !important;
+}
+.excel{
+	background-image: url('../images/page_excel.png') !important;
+}
+.save_upload_32{
+	background-image: url('../icon/save_upload_32.png') !important;
+}
+.basket_close_32{
+	background-image: url('../icon/basket_close_32.png') !important;
+}
+.disk{
+	background-image: url('../icon/disk.png') !important;
+}
+.exportexcel{
+	background-image: url('../icon/excel.jpg') !important;
+}
+.delete{
+	background-image: url('../icon/delete.png') !important;
+}
+.search{
+	background-image: url('../icon/search.png') !important;
+}
+.database_connect{
+	background-image: url('../icon/database_connect.png') !important;
+}
+.blue{
+	background-color: blue; color:#FFF; font-size:18px
+}
+
+.x-column-header.red {background-color: red;}
+.x-column-header.red .x-column-header-over,
+.x-column-header.red .x-column-header-sort-ASC,
+.x-column-header.red .x-column-header-sort-DESC {background-color: green; }

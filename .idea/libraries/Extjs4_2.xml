@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="Extjs4.2" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="ExtJS 4.2" />
+      <option name="frameworkVersion" value="4.2.2" />
+      <sourceFilesUrls>
+        <item url="file://E:/dev/ext-4.2.2/ext-all.js" />
+        <item url="file://E:/dev/ext-4.2.2/bootstrap.js" />
+        <item url="file://E:/dev/ext-4.2.2/ext-all-debug.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://E:/dev/ext-4.2.2/ext-all.js" />
+      <root url="file://E:/dev/ext-4.2.2/bootstrap.js" />
+      <root url="file://E:/dev/ext-4.2.2/ext-all-debug.js" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="http://docs.sencha.com/extjs/4.2.0/#!/api" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>

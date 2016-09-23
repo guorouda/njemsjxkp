@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="imwork.net">
+    <serverData>
+      <paths name="ME">
+        <serverdata>
+          <mappings>
+            <mapping deploy="njemsjxkp" local="$PROJECT_DIR$/" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="imwork.net">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/usr/local/apache-tomcat-7.0.52/webapps/njemsjxkp" local="$PROJECT_DIR$/build/production/JxkpApp" web="/njemsjxkp" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

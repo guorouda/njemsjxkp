@@ -1,0 +1,92 @@
+Ext.define('JxkpApp.Application', {
+    name: 'JxkpApp',
+
+    extend: 'Ext.app.Application',
+
+    views: [
+        // TODO: add views here
+        'combo.Dept',
+        'combo.Gender',
+        'combo.Level',
+        'combo.Segment',
+        'combo.State',
+        'combo.Station',
+        'user.SalaryListForm',
+        'user.Score',
+        'user.Attendence',
+        'user.Dept',
+        'user.CheckDept',
+        'user.ManagerDept',
+        'user.Login',
+        'user.Import',
+        'user.PersonSalary',
+        'user.PersonSalaryCheck',
+        'user.Check',
+        'user.CheckSingle',
+        'user.User',
+        'user.UserForm',
+        'user.UserDeleteFormList',
+        'user.List',
+        'user.DeptManagement',
+        'user.Authorization',
+        'user.UserAuthorization',
+        'user.UserAuthorizationForm',
+        'user.InnerSalary_fail_log',
+        'crowdshare.Register',
+        'crowdshare.RegisterForm',
+        'crowdshare.RegisterWithForm',
+        'crowdshare.Deploy',
+        'crowdshare.DeployForm',
+        'crowdshare.DeployWithForm',
+        'crowdshare.DeployQuery',
+        'crowdshare.HandToPostman',
+        'crowdshare.HandBack',
+        'crowdshare.DaySalary',
+        'crowdshare.MonthSalary',
+        // 'crowdshare.HandToPostmanDetail',
+        'workflow.Dept',
+        'user.ChangePassword',
+        'Hr',
+        'combo.Direction'
+    ],
+
+    controllers: [
+        // TODO: add controllers here        
+        'Score',
+        'Attendence',
+        'Main',
+        'User',
+        'Check',
+        'Postman',
+        'Deploy'
+    ],
+
+    stores: [
+        // TODO: add stores here
+        'Scores',
+        'Attendences',
+        'Lists',
+        'Salarys',
+        'PersonSalary',
+        'Segments',
+        'InnerSalary_fail_logs',
+        'JxkpApp.store.combo.Stations',
+        "JxkpApp.store.combo.Depts",
+        'JxkpApp.store.combo.Levels',
+        'JxkpApp.store.combo.DeptTypes',
+        'JxkpApp.store.crowdshare.Users',
+        'JxkpApp.store.crowdshare.Mails',
+        'JxkpApp.store.crowdshare.DeployQuerys',
+        'States',
+        'Depts',
+        'AllDepts',
+        'WorkFlowDepts',
+        'ManagerDepts',
+        'Users',
+        'Genders',
+        'Menus',
+        'SearchUsers',
+        'Directions'
+
+    ]
+});
