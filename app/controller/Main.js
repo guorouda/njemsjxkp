@@ -289,7 +289,6 @@ Ext.define('JxkpApp.controller.Main', {
                         callback: function(records, operation, success) {
                             // 对象 operation 包含
                             // 所有 load 操作的详细信息
-                            // console.log(records);
                         }
                     });
                     // EXt.getStore("JxkpApp.store.combo.Levels").load({
@@ -300,19 +299,11 @@ Ext.define('JxkpApp.controller.Main', {
                     //         console.log(operation);
                     //     }
                     // });
-                    Ext.getStore('JxkpApp.store.combo.Stations').load(
 
-                    );    
-                    Ext.getStore('JxkpApp.store.combo.Depts').load(
-                        
-                    );
-                    Ext.getStore('JxkpApp.store.combo.Levels').load(
-                        
-                    );
-                    Ext.getStore('Directions').load(
-
-                    );
-
+                    // Ext.getStore('JxkpApp.store.combo.Stations').load();    
+                    Ext.getStore('JxkpApp.store.combo.Depts').load();
+                    Ext.getStore('JxkpApp.store.combo.Levels').load();
+                    Ext.getStore('Directions').load();
                 }
             }, 
             failure: function(resp,opts) { 

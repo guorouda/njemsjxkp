@@ -25,8 +25,9 @@ Ext.define('JxkpApp.store.Depts', {
                 // },
                 // url: '/jxkpserver/DeptAction.do?action=list&type=user',
                 api: {
+                    create: '/jxkpserver/DeptAction.do?action=save',
                     read: '/jxkpserver/DeptAction.do?action=list&type=user',
-                    update: '/jxkpserver/DeptAction.do?action=update',
+                    update: '/jxkpserver/DeptAction.do?action=save',
                     destroy: '/jxkpserver/DeptAction.do?action=delete'
                 },
                 reader: {

@@ -124,10 +124,13 @@ Ext.define('JxkpApp.view.DeptFormManagement', {
 
     onDeleteBtnClick: function(button){     
         var store = button.up('form').up('panel').down('treepanel').getStore();
-        console.log(store);
         var rec = store.getAt(1);
         store.remove(store.getAt(1));
-        store.sync();
+        store.sync({
+            callback: function(){
+                alert('ok!');
+            }
+        });
     },
 
     onSaveBtnClick: function(button){
@@ -135,7 +138,34 @@ Ext.define('JxkpApp.view.DeptFormManagement', {
         var record = form.getRecord();
         form.getForm().updateRecord(record);
         var store = button.up('form').up('panel').down('treepanel').getStore();
-        store.sync();
+        store.sync({
+            params: {           
+
+            },
+            // callback是加载完毕时执行的回调函数，它包含3个参数：records参数表示获得的数据，
+            // options表示执行load()时传递的参数，success表示是否加载成功。
+            callback: function(r, options, success){
+                // console.log(r);
+                // console.log(options);
+                // console.log(success);
+                // if(!success){
+                //     Ext.Msg.alert('info', '修改失败，请重试！');
+                // }else{
+                //     Ext.Msg.alert('info', 'ok');
+                    
+                // }
+            },
+            scope: this, //Scope用来指定回调函数执行时的作用域
+            //Add为true时，load()得到的数据会添加在原来的store数据的末尾，
+            //否则会先清除之前的数据，再将得到的数据添加到store中
+            add: false,
+            success: function(optional){
+                Ext.Msg.alert('info', 'ok');
+            },
+            fail: function(optional){
+                Ext.Msg.alert('info', '修改失败，请重试！');
+            }
+        });
     },
 
     setActiveRecord: function(record){

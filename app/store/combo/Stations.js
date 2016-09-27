@@ -1,7 +1,7 @@
 Ext.define('JxkpApp.store.combo.Stations', {
     extend: 'Ext.data.Store', 
 
-    autoLoad: true,
+    autoLoad: false,
 
 	fields: [{
 			name: 'di_caption',
