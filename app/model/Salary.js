@@ -4,6 +4,7 @@ extend: 'Ext.data.Model',
 		{ name: 'EMP_NAME', type: 'string' },
 		{ name: 'EMP_ID', type: 'int' },
 		{ name: 'DEP_ID', type: 'int' },
+		{ name: 'TYPE', type: 'String' },
 		{ name: 'IDS', type: 'string'},
 		{ name: 'ATT_MONTH', type: 'date', dateFormat : 'Y-m-d H:i:s.u'},
 		{ name: 'STATION', type: 'int' },
@@ -27,6 +28,8 @@ extend: 'Ext.data.Model',
 		{ name: 'MEMO', type: 'string' },
 		{ name: 'MODILOCK', type: 'int' },
 		{ name: 'check', type: 'auto' },
+		{ name: 'QUIT', type: 'bool' }
+
 
 	]
 });

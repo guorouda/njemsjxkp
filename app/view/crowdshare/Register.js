@@ -55,7 +55,7 @@ Ext.define('JxkpApp.view.crowdshare.Register' ,{
                                     maxValue: new Date(),  // limited to the current date or prior
                                     fieldLabel: '申请日期'
                                 },
-                                {text:'获取数据', iconCls:'database_connect', action: 'user_fetch'},"-",
+                                {text:'获取数据', iconCls:'database_connect', action: 'postmanuser_fetch'},"-",
                                 {text:'遍历', iconCls:'search', action: 'search'},
                                 {text:'清空', iconCls:'delete', action: 'deleteAll'},"-",
                                 {text:"Excel导出", iconCls:"exportexcel", action: 'exportExcel'}

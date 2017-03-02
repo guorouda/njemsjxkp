@@ -37,7 +37,10 @@ Ext.define('JxkpApp.controller.User', {
     levelOriginalValue: null,
 
     init: function() {
-        this.control({           
+        this.control({   
+            'userlist checkcolumn': {
+                checkchange: this.onCheckChange
+            },        
             'userlist button[action=user_fetch]': {
                 click: this.user_fetchData
             },
@@ -45,7 +48,7 @@ Ext.define('JxkpApp.controller.User', {
                 click: this.inExcel
             },
             'userlist': {
-                edit: this.onAfterEdit,             
+                edit: this.onUserAfterEdit,             
                 // cellclick: this.onCellClick,
                 beforeedit: this.onBeforeEdit,
                 itemdblclick: this.onEditUser
@@ -107,6 +110,13 @@ Ext.define('JxkpApp.controller.User', {
             }
         });
         
+    },
+
+    onCheckChange: function(checkcolumn, rowIndex, checked, eOpts){
+        var grid = checkcolumn.up('grid');
+        var record = grid.getStore().getAt(rowIndex); 
+        record.reject();
+
     },
 
     onUserDeleteForm: function(button){
@@ -172,8 +182,12 @@ Ext.define('JxkpApp.controller.User', {
         levelOriginalValue = e.originalValue;       
 
     },
-    onAfterEdit: function(editor, e){
-        var record = e.record;
+    onUserAfterEdit: function(editor, e){        
+        if(e.field == 'QUIT'){
+            e.record.reject();
+            return false;
+        }
+        var record = e.record;        
         var grid = this.getUserlist();     
         var newvalue;
 

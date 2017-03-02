@@ -59,6 +59,9 @@ Ext.define('JxkpApp.controller.Main', {
             // 'tabpanel > panel': {
             //     render: this.onPanelRendered
             // },
+            'salarylist checkcolumn': {
+                checkchange: this.onCheckChange
+            },
             'viewport > listlist': {
             },
             'userlogin button[action=login]': {
@@ -92,7 +95,7 @@ Ext.define('JxkpApp.controller.Main', {
                 click: this.exportExcel
             },
             'salarylist': {
-                edit: this.onAfterEdit,             
+               edit: this.onAfterEdit,             
                 cellclick: this.onCellClick,                
                 beforeedit: this.onBeforeEdit,
                 select: this.onSalarySelect
@@ -130,6 +133,7 @@ Ext.define('JxkpApp.controller.Main', {
         });
         
     },
+
 
     onInnerSalary_fail_logClick: function(button){
         var store = this.getInnersalary_fail_loglist().getStore();
@@ -300,7 +304,9 @@ Ext.define('JxkpApp.controller.Main', {
                     //     }
                     // });
 
-                    // Ext.getStore('JxkpApp.store.combo.Stations').load();    
+                    Ext.getStore('JxkpApp.store.combo.Stations').load({
+                        params:{emp_id:''}
+                    });    
                     Ext.getStore('JxkpApp.store.combo.Depts').load();
                     Ext.getStore('JxkpApp.store.combo.Levels').load();
                     Ext.getStore('Directions').load();
@@ -406,6 +412,54 @@ Ext.define('JxkpApp.controller.Main', {
         var grid = this.getSalarylist(); 
         grid.columns[e.colIdx + 3].addCls('red');
 
+    },
+    onCheckChange: function(checkcolumn, rowIndex, checked, eOpts){
+        var grid = checkcolumn.up('grid');
+        var record = grid.getStore().getAt(rowIndex); 
+        var rq = Ext.Date.format(record.data.ATT_MONTH, 'Ym');
+
+        var requesturl = '/jxkpserver/UserAction.do?action=setSalary';
+
+        // if(checkcolumn.up('salarylist') !== undefined){
+        //     requesturl = requesturl + 'setSalary';
+        // }
+        
+        if(checkcolumn.up('userlist') !== undefined){
+            requesturl = '/jxkpserver/UserAction.do?action=setUser';
+        }
+
+
+        Ext.Ajax.request({   
+            url: requesturl,
+            params:{
+                oldvalue: !checked,
+                value: checked,
+                empid: record.data.EMP_ID,
+                depid: record.data.DEP_ID,
+                rq: rq,
+                ids: record.data.IDS,
+                field: 'QUIT',
+                type: 'salary'
+            },
+            success: function(resp, opts) { 
+                var respText = Ext.JSON.decode(resp.responseText);
+                if (respText.success === true) {
+                    record.commit();
+                }else {
+                    record.reject();
+                    Ext.Msg.alert('错误', respText.message);
+                }
+            }, 
+            failure: function(resp,opts) { 
+                var error = '发生故障，请检查再试，或联系系统管理员';
+                if(resp.responseText !== ''){
+                    var respText = Ext.JSON.decode(resp.responseText); 
+                    error = respText.eror;
+                } 
+                record.set('QUIT', !checked);
+                Ext.Msg.alert('错误', error); 
+            }   
+        }); 
     },
     //没有使用salary sync(). 待考虑
     onAfterEdit: function(editor, e){

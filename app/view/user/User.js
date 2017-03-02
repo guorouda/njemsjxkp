@@ -36,6 +36,8 @@ Ext.define('JxkpApp.view.user.User' ,{
                         },                                   
                         {header: "姓名", menuDisabled: true, dataIndex: 'EMP_NAME',width: 80,align: 'left', locked: true, summaryType: 'count'//, editor: new Ext.form.TextField({allowBlank: true})
                         },
+                        {header: '离职?', menuDisabled: true, xtype: 'checkcolumn', dataIndex: 'QUIT', width: 50, stopSelection: false
+                        },
                         {header: "部门",  menuDisabled: true, dataIndex: 'DEP_ID', width: 80, sortable: true, align: 'right',
                             renderer: function(value, cellmeta, record, rowindex, columnindex, store) {
                                     var store1 = Ext.StoreMgr.lookup('JxkpApp.store.combo.Depts');
@@ -95,12 +97,17 @@ Ext.define('JxkpApp.view.user.User' ,{
                         },      
                         {header: "岗位名称",  menuDisabled: true, dataIndex: 'STATION', width: 80, sortable: true, align: 'right', //editor: {xtype: 'userstation'},
                                 renderer: function(value, cellmeta, record, rowindex, columnindex, store) {
-                                    var store1 = Ext.StoreMgr.lookup('JxkpApp.store.combo.Stations');
-                                    var index = store1.find('di_value', value);                        
-                                    if (index != -1) {
-                                        var rec = store1.getAt(index);
-                                        return rec.data.di_caption;
-                                    }
+                                        var store1 = Ext.StoreMgr.lookup('JxkpApp.store.combo.Stations');
+                                        var type = record.get("TYPE"); 
+
+                                        var index  = store1.findBy(function(record, id){
+                                            return (record.get('dd_id') == type && record.get('di_value') == value);
+                                        });
+                                        
+                                        if (index != -1) {
+                                            var rec = store1.getAt(index); 
+                                            return rec.data.di_caption;
+                                        }
                                 }
                         },      
                         {header: "段道",  menuDisabled: true, dataIndex: 'SEGMENT', width: 50, sortable: true, align: 'right', //editor: {xtype: 'usersegment'},

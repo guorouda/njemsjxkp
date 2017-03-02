@@ -8,6 +8,7 @@ extend: 'Ext.data.Model',
 		{name: 'DEP_ID', type: 'string'},
 		{name: 'LEV', type: 'string'},
 		{name: 'SEX', type: 'string'},
+		{name: 'TYPE', type: 'string'},
 		{name: 'STATION', type: 'string'},
 		{name: 'SEGMENT', type: 'string'},
 		{name: 'CATEGORY', type: 'string'},
@@ -23,6 +24,8 @@ extend: 'Ext.data.Model',
 		{name: 'JSJB', type: 'string'},
 		{name: 'GWGZ', type: 'string'},
 		{name: 'MEMO', type: 'string'},
-		{name: 'AAA', type: 'string'}
+		{name: 'AAA', type: 'string'},
+		{name: 'QUIT', type: 'bool'},
+		{name: 'QUITTIME', type: 'date', dateFormat : 'Y-m-d H:i:s.u'}
 	]
 });

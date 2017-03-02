@@ -18,6 +18,11 @@ Ext.define('JxkpApp.view.user.Salary' ,{
         ftype: 'summary'
     }],
 
+    selModel : {
+        selType : 'rowmodel',
+        mode : 'SINGLE'
+    },
+
     plugins: [{
             ptype: 'cellediting',
             clicksToEdit: 2          
@@ -44,14 +49,22 @@ Ext.define('JxkpApp.view.user.Salary' ,{
                     return Ext.String.format('{0} 人', value);
                 }
             },
-            { header: "姓名", menuDisabled: true, dataIndex: 'EMP_NAME', locked: true, width: 80, align: 'left'},
-
-            { header: "岗位名称", menuDisabled: true, dataIndex: 'STATION', width: 130, tooltip: '岗位名称', align: 'right', editor: {xtype: 'combostation'},
+            { header: "姓名", menuDisabled: true, dataIndex: 'EMP_NAME', locked: true, width: 80, align: 'left'
+            },
+            { header: '离职?', menuDisabled: true, xtype: 'checkcolumn',  dataIndex: 'QUIT', width: 50, stopSelection: false
+            },
+            { header: "岗位名称", menuDisabled: true, dataIndex: 'STATION', width: 130, tooltip: '岗位名称', align: 'right', editor: {xtype: 'combostation'}
+                    ,
                     renderer: function(value, cellmeta, record, rowindex, columnindex, store) {
                         var store1 = Ext.StoreMgr.lookup('JxkpApp.store.combo.Stations');
-                        var index = store1.find('di_value', value);                        
+                        var type = record.get("TYPE"); 
+
+                        var index  = store1.findBy(function(record, id){
+                            return (record.get('dd_id') == type && record.get('di_value') == value);
+                        });
+                        
                         if (index != -1) {
-                            var rec = store1.getAt(index);
+                            var rec = store1.getAt(index); 
                             return rec.data.di_caption;
                         }
                     }
@@ -66,7 +79,7 @@ Ext.define('JxkpApp.view.user.Salary' ,{
                         }
                     }
             },
-            { header: "误歺费天数", menuDisabled: true, dataIndex: 'ATTENDENCE', width: 70, tooltip: '误歺费天数', align: 'right', summaryType: 'sum', editor: new Ext.form.field.Number({ allowBlank: true }) },
+            // { header: "误歺费天数", menuDisabled: true, dataIndex: 'ATTENDENCE', width: 70, tooltip: '误歺费天数', align: 'right', summaryType: 'sum', editor: new Ext.form.field.Number({ allowBlank: true }) },
             { header: "绩效得分", menuDisabled: true, dataIndex: 'JXDF', width: 70, tooltip: '绩效得分', sortable: true, align: 'right', summaryType: 'average' },
             { header: "绩效", menuDisabled: true, dataIndex: 'JXGZ', width: 70, tooltip: '绩效', sortable: true, align: 'right', summaryType: 'sum', editor: new Ext.form.field.Number({ allowBlank: true }) },
             { header: "日常加班", menuDisabled: true, dataIndex: 'RCJB', width: 70, tooltip: '日常加班', sortable: true, align: 'right', summaryType: 'sum', editor: new Ext.form.field.Number({ allowBlank: true }) },

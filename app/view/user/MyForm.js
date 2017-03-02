@@ -73,7 +73,8 @@ Ext.define('JxkpApp.view.user.MyForm', {
                     fieldLabel: '岗位名称',
                     labelWidth: 70,
                     labelAlign: 'right',
-					name: 'STATION'
+					name: 'STATION',   
+                    disabled: true
                 },
                 {
                     xtype: 'combosegment',

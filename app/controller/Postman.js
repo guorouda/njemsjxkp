@@ -19,7 +19,7 @@ Ext.define('JxkpApp.controller.Postman', {
 
     init: function() {
         this.control({
-            'button[action=user_fetch]': {
+            'button[action=postmanuser_fetch]': {
                 click: this.onUser_fetch
             },
             'registerlist': {
